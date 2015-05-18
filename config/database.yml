@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: yardmaster_development
+
+staging:
+  <<: *default
+  database: yardmaster_staging
+
+test:
+  <<: *default
+  database: yardmaster_test
+
+production:
+  <<: *default
+  database: yardmaster_production
+  username: yardmaster
+  password: <%= ENV['YARDMASTER_DATABASE_PASSWORD'] %>
